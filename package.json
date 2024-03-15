@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start:both": "nx run-many --target=serve --projects=frontend,backend --parallel"
+  },
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -36,7 +39,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "jsdom": "~22.1.0",
     "nx": "18.0.8",
-    "prettier": "^2.6.2",
+    "prettier": "3.2.5",
     "sass": "^1.55.0",
     "typescript": "~5.3.2",
     "vite": "~5.0.0",
