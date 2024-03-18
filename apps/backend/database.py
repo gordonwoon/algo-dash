@@ -1,16 +1,16 @@
-# app/database.py
+import os
+
+from dotenv import load_dotenv
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.future import create_engine
-from databases import Database
 
-DATABASE_URL = "postgresql://user:password@localhost/dbname"
+load_dotenv()
 
-# SQLAlchemy
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-# databases query builder
-database = Database(DATABASE_URL)
+engine = create_async_engine(DATABASE_URL)
+SessionLocal = sessionmaker(
+    autocommit=False, autoflush=False, bind=engine, class_=AsyncSession)
 
 Base = declarative_base()

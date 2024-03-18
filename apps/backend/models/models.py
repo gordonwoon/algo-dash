@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Float, Integer, String, DateTime
 from backend.database import Base
+from sqlalchemy import Column, DateTime, Float, Integer, String
 
 
 class StockData(Base):
