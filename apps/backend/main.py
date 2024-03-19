@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from .database import (Base,  # Adjust import path as needed
-                       engine)
+from .database import Base, engine  # Adjust import path as needed
 from .routes import routes
 
 app = FastAPI()
