@@ -53,11 +53,13 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:7.32.2"],\
           ["eslint-plugin-react-hooks", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:4.6.0"],\
           ["jsdom", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:22.1.0"],\
+          ["lightweight-charts", "npm:4.1.3"],\
           ["nx", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:18.0.8"],\
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:18.2.0"],\
           ["sass", "npm:1.72.0"],\
+          ["tslib", "npm:2.6.2"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"],\
           ["vite", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:5.0.12"],\
           ["vitest", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:1.4.0"]\
@@ -106,11 +108,13 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:7.32.2"],\
           ["eslint-plugin-react-hooks", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:4.6.0"],\
           ["jsdom", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:22.1.0"],\
+          ["lightweight-charts", "npm:4.1.3"],\
           ["nx", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:18.0.8"],\
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:18.2.0"],\
           ["sass", "npm:1.72.0"],\
+          ["tslib", "npm:2.6.2"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"],\
           ["vite", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:5.0.12"],\
           ["vitest", "virtual:36d443bec60e40297a3c214c0b479d60798c4669c715c3a00689407255bce0a0138cabcd9ae581f6895d347de4d5e09f7325276dcec00cbba8d72bf1c50566ba#npm:1.4.0"]\
@@ -7716,6 +7720,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["fancy-canvas", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/fancy-canvas-npm-2.1.0-22df58fc44-10c0.zip/node_modules/fancy-canvas/",\
+        "packageDependencies": [\
+          ["fancy-canvas", "npm:2.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["fast-deep-equal", [\
       ["npm:3.1.3", {\
         "packageLocation": "../../../.yarn/berry/cache/fast-deep-equal-npm-3.1.3-790edcfcf5-10c0.zip/node_modules/fast-deep-equal/",\
@@ -9329,6 +9342,16 @@ const RAW_RUNTIME_STATE =
           ["levn", "npm:0.4.1"],\
           ["prelude-ls", "npm:1.2.1"],\
           ["type-check", "npm:0.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lightweight-charts", [\
+      ["npm:4.1.3", {\
+        "packageLocation": "../../../.yarn/berry/cache/lightweight-charts-npm-4.1.3-ecd482cf1e-10c0.zip/node_modules/lightweight-charts/",\
+        "packageDependencies": [\
+          ["lightweight-charts", "npm:4.1.3"],\
+          ["fancy-canvas", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
