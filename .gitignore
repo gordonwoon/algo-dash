@@ -41,3 +41,4 @@ Thumbs.db
 .nx/cache
 .yarn
 apps/backend/.env
+__pycache__

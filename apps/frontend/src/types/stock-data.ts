@@ -15,6 +15,6 @@ export interface TradeMarker {
 }
 
 export interface StockData {
-  ohlc: OHLC[];
+  data: OHLC[];
   trades: TradeMarker[];
 }
