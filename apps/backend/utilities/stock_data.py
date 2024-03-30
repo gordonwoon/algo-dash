@@ -6,7 +6,6 @@ from ..models.models import StockData
 
 
 async def fetch_and_store_stock_data(session: AsyncSession, ticker: str):
-    # Simplify the process of getting the latest record date and determining date ranges
     latest_record_date = await get_latest_record_date(session, ticker)
     start_date = latest_record_date + \
         timedelta(days=1) if latest_record_date else datetime.now() - \
@@ -15,28 +14,60 @@ async def fetch_and_store_stock_data(session: AsyncSession, ticker: str):
 
     # Fetch stock data
     df = yf.download(ticker, start=start_date.strftime(
-        "%Y-%m-%d"), end=end_date.strftime("%Y-%m-%d"))
+        "%Y-%m-%d"), end=end_date.strftime("%Y-%m-%d"), ignore_tz=True)
     if df.empty:
         return []
 
-    # Store new data in the database
-    records = []
-    for date, row in df.iterrows():
-        new_record = StockData(
-            ticker=ticker.upper(),
-            date=date.date(),
-            open=row['Open'],
-            high=row['High'],
-            low=row['Low'],
-            close=row['Close'],
-            volume=int(row['Volume'])
-        )
-        records.append(new_record)
-    session.add_all(records)
-    await session.commit()
+    # Prepare data to be stored, excluding the last row
+    records_to_store = []
+    for i, (index, row) in enumerate(df.iterrows()):
+        if i < len(df) - 1:  # Check if it's not the last row
+            new_record = StockData(
+                ticker=ticker.upper(),
+                date=index.date(),
+                open=row['Open'],
+                high=row['High'],
+                low=row['Low'],
+                close=row['Close'],
+                volume=int(row['Volume'])
+            )
+            records_to_store.append(new_record)
 
-    # Return all data for the ticker
-    return await get_all_stock_data(session, ticker)
+    # Store filtered data in the database
+    if records_to_store:
+        session.add_all(records_to_store)
+        await session.commit()
+
+    # Fetch all existing stock data for the ticker from the database
+    existing_data = await get_all_stock_data(session, ticker)
+
+    # Convert existing data to the desired format
+    existing_data_formatted = [
+        {
+            "date": data.date,
+            "open": data.open,
+            "high": data.high,
+            "low": data.low,
+            "close": data.close,
+            "volume": data.volume
+        } for data in existing_data
+    ]
+
+    # Append the last row of the newly fetched data if it exists
+    if not df.empty:
+        last_row = df.iloc[-1]
+        last_row_formatted = {
+            "date": df.index[-1].date(),
+            "open": last_row['Open'],
+            "high": last_row['High'],
+            "low": last_row['Low'],
+            "close": last_row['Close'],
+            "volume": int(last_row['Volume'])
+        }
+        existing_data_formatted.append(last_row_formatted)
+
+    # Return combined data
+    return existing_data_formatted
 
 
 async def get_latest_record_date(session: AsyncSession, ticker: str) -> datetime:

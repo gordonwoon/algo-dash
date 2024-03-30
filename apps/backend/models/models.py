@@ -1,5 +1,5 @@
 from ..database import Base
-from sqlalchemy import Column, DateTime, Float, Integer, String
+from sqlalchemy import Column, DateTime, Float, Integer, String, UniqueConstraint
 
 
 class StockData(Base):
@@ -14,3 +14,5 @@ class StockData(Base):
     low = Column(Float)
     close = Column(Float)
     volume = Column(Integer)
+    __table_args__ = (UniqueConstraint('ticker', 'date',
+                      'timeframe', name='_ticker_date_timeframe_uc'),)
